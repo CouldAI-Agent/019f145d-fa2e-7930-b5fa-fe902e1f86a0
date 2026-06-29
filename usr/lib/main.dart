@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'models.dart';
 
+String _formatDate(DateTime date) {
+  return '${date.hour.toString().padLeft(2, '0')}:${date.minute.toString().padLeft(2, '0')}';
+}
+
 void main() {
   runApp(const ChatApp());
 }
