@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'models.dart';
 
 void main() {
@@ -144,7 +143,7 @@ class ChatList extends StatelessWidget {
             ),
             trailing: conv.lastMessage != null
                 ? Text(
-                    DateFormat('HH:mm').format(conv.lastMessage!.timestamp),
+              _formatDate(conv.lastMessage!.timestamp),
                     style: const TextStyle(fontSize: 12, color: Colors.grey),
                   )
                 : null,
@@ -205,7 +204,7 @@ class _ChatDetailState extends State<ChatDetail> {
           children: [
             CircleAvatar(
               backgroundImage: NetworkImage(widget.conversation.otherUser.avatarUrl),
-              size: 32,
+              radius: 16,
             ),
             const SizedBox(width: 12),
             Text(widget.conversation.otherUser.name),
@@ -260,7 +259,7 @@ class _ChatDetailState extends State<ChatDetail> {
                         ),
                         const SizedBox(height: 4),
                         Text(
-                          DateFormat('HH:mm').format(message.timestamp),
+                        _formatDate(message.timestamp),
                           style: TextStyle(
                             fontSize: 10,
                             color: isMe 

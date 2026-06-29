@@ -29,6 +29,8 @@ class Conversation {
   final User otherUser;
   final List<Message> messages;
 
+  Message? get lastMessage => messages.isNotEmpty ? messages.last : null;
+
   const Conversation({
     required this.id,
     required this.otherUser,
